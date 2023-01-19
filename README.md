@@ -6,7 +6,7 @@ This project is a demonstration of my learning and experimentation with [Flutter
 
 To run this project, you will need to have [Flutter](https://flutter.dev/docs/get-started/install) and [Dart](https://dart.dev/get-dart) installed on your machine.
 
-1. Clone this repository by running `git clone https://github.com/Barvoziker/learn_flutter`
+1. Clone this repository by running `git clone https://github.com/Barvoziker/CourseFlutter`
 2. Navigate to the project directory by running `cd learn_flutter`
 3. Run the command `flutter run` to start the app on an emulator or connected device
 
