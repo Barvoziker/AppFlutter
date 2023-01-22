@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 import 'package:provider/provider.dart';
 
-import 'app_state.dart';
-import 'history.dart';
+import '../app_state.dart';
+import 'history_component.dart';
 
 /// It's a stateless widget that displays a text field and a button.
 ///

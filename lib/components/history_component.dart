@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'app_state.dart';
+import '../app_state.dart';
 
 /// _HistoryListViewState is a subclass of State, and it's a subclass of State that's associated with the HistoryListView widget
 class _HistoryListViewState extends State<HistoryListView> {
