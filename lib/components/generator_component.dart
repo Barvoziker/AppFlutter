@@ -35,6 +35,22 @@ class GeneratorPage extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
+              //create user button
+              ElevatedButton(
+                onPressed: () {
+                  appState.createUser();
+                },
+                child: Text('Create User'),
+              ),
+
+              //call fetchUser() when the button is pressed
+              ElevatedButton(
+                onPressed: () {
+                  appState.fetchUser();
+                },
+                child: Text('Fetch User'),
+              ),
+
               ElevatedButton.icon(
                 onPressed: () {
                   appState.toggleFavorite();
