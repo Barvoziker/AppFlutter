@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'favorites_page.dart';
-import 'generator_page.dart';
+import '../components/generator_component.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
