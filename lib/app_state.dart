@@ -46,13 +46,11 @@ class MyAppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  String _email = '';
   String _bearer = '';
 
   /// It fetches the user from the database.
-  fetchUser() async {
-    var mail = "test.buchet@hotmail.fr";
-    var password = "123";
-
+  fetchUser(String mail, String password) async {
     _bearer = await generateToken(mail, password);
     var response = await http.get(Uri.parse('http://127.0.0.1:8000/api/users'),
         headers: {
@@ -64,18 +62,20 @@ class MyAppState extends ChangeNotifier {
   }
 
   /// It creates a user in the database.
-  createUser() async {
-    var mail = "m.buchet@hotmail.fr";
-    var password = "123";
-
+  createUser(String mail, String password) async {
     //send the request with json body
-    var response = await http.post(Uri.parse('http://127.0.0.1:8000/api/users'),
+    await http.post(Uri.parse('http://127.0.0.1:8000/api/users'),
         headers: {"Content-Type": "application/json"},
         body: '{"email": "$mail", "password": "$password"}');
 
+    _email = mail;
+    notifyListeners();
+
     generateToken(mail, password);
-    print(response.body);
+    fetchUser(mail, password);
   }
+
+  String get email => _email;
 
   /// It generates a token for the user.
   ///

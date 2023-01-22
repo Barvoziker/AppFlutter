@@ -3,7 +3,7 @@ import 'package:english_words/english_words.dart';
 import 'package:provider/provider.dart';
 
 import '../app_state.dart';
-import 'history_component.dart';
+import '../components/history_component.dart';
 
 /// It's a stateless widget that displays a text field and a button.
 ///
@@ -13,6 +13,9 @@ class GeneratorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     var pair = appState.current;
+
+    // check if email is not empty to display it
+    var emailText = appState.email.isNotEmpty ? appState.email : Container();
 
     IconData icon;
     if (appState.favorites.contains(pair)) {
@@ -35,22 +38,6 @@ class GeneratorPage extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              //create user button
-              ElevatedButton(
-                onPressed: () {
-                  appState.createUser();
-                },
-                child: Text('Create User'),
-              ),
-
-              //call fetchUser() when the button is pressed
-              ElevatedButton(
-                onPressed: () {
-                  appState.fetchUser();
-                },
-                child: Text('Fetch User'),
-              ),
-
               ElevatedButton.icon(
                 onPressed: () {
                   appState.toggleFavorite();
@@ -66,6 +53,17 @@ class GeneratorPage extends StatelessWidget {
                 child: Text('Next'),
               ),
             ],
+          ),
+          Text(
+            "Email: " "$emailText",
+            style: TextStyle(
+                fontSize: 14,
+                color: Colors.blue,
+                fontFamily: 'Roboto',
+                fontWeight: FontWeight.w400,
+                letterSpacing: 2.0,
+                height: 1.5,
+                decoration: TextDecoration.underline),
           ),
           Spacer(flex: 2),
         ],

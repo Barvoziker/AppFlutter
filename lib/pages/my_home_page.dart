@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'favorites_page.dart';
-import '../components/generator_component.dart';
+import 'generator_page.dart';
+import 'register_page.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -12,11 +13,6 @@ class _MyHomePageState extends State<MyHomePage> {
   var selectedIndex = 0;
 
   @override
-
-  /// A function that returns a widget.
-  ///
-  /// Args:
-  ///   context (BuildContext): The current context of the widget.
   Widget build(BuildContext context) {
     var colorScheme = Theme.of(context).colorScheme;
 
@@ -27,6 +23,9 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 1:
         page = FavoritesPage();
+        break;
+      case 2:
+        page = RegisterPage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -60,6 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icon(Icons.favorite),
                         label: 'Favorites',
                       ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.person),
+                        label: 'Register',
+                      ),
                     ],
                     currentIndex: selectedIndex,
                     onTap: (value) {
@@ -85,6 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       NavigationRailDestination(
                         icon: Icon(Icons.favorite),
                         label: Text('Favorites'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.person),
+                        label: Text('Register'),
                       ),
                     ],
                     selectedIndex: selectedIndex,
